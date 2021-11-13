@@ -1,0 +1,38 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+/* TODO */
+.block >>> .button {
+  margin-top: 20px;
+  padding: 15px 25px;
+}
+
+.title {
+  text-shadow: 5px -2px 0px var(--secondary-color);
+  font-family: 'NotoSansTC Bold';
+  font-size: 65px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  padding: 10px 0;
+  color: var(--primary-color);
+  font-family: 'NotoSansTC Bold';
+  font-size: 17px;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    margin: 40px 20px;
+  }
+
+  .title {
+    margin-bottom: 30px;
+  }
+}
