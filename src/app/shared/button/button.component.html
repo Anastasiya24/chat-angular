@@ -1,4 +1,4 @@
-<div class="button" (click)="onClick()">
-  <!-- TODO add invalid style -->
+<div class="button" [class.invalid]="invalid" (click)="onClick()">
+  <!-- [ngClass]="{invalid: invalid}" -->
   <p>{{ text }}</p>
 </div>

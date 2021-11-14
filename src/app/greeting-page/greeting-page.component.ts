@@ -6,11 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./greeting-page.component.css'],
 })
 export class GreetingPageComponent implements OnInit {
+  nickName: string = '';
+  isInvalidNickName: boolean = true;
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  onSaveNickName() {
-    console.log('Save click');
+  onChangeNickName(e: string): void {
+    this.nickName = e;
+    this.isInvalidNickName = !e || !e?.trim();
+  }
+
+  onSaveNickName(): void {
+    // TODO SAVE NICKNAME
+    console.log('Save click', this.nickName);
   }
 }

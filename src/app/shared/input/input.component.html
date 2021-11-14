@@ -1,0 +1,14 @@
+<div class="input">
+  <input
+    type="text"
+    [(ngModel)]="model"
+    (change)="onChangeEvent($event)"
+
+    class="effect"
+    [placeholder]="placeholder"
+    (keyup.enter)="onKeyPress()"
+  />
+  <span class="border">
+    <i></i>
+  </span>
+</div>

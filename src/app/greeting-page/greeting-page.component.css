@@ -6,10 +6,9 @@
   margin-top: 80px;
 }
 
-/* TODO */
-.block >>> .button {
+.block>>>.button {
   margin-top: 20px;
-  padding: 15px 25px;
+  padding: 12px 25px;
 }
 
 .title {
@@ -28,11 +27,15 @@
 }
 
 @media (max-width: 600px) {
+  .block {
+    margin-top: 20px;
+  }
+
   .wrapper {
     margin: 40px 20px;
   }
 
   .title {
-    margin-bottom: 30px;
+    margin: 30px 20px;
   }
 }

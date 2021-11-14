@@ -1,0 +1,14 @@
+<div class="modal" (click)="onClose">
+  <div class="dialog" (click)="dialogStopPropagation($event)">
+    <div class="header">
+      <h3 class="title">{{ title }}</h3>
+      <span class="close" (click)="onClose"> &times; </span>
+    </div>
+    <div class="body">
+      <div class="content">
+        <!-- TODO children element -->
+        <slot></slot>
+      </div>
+    </div>
+  </div>
+</div>
