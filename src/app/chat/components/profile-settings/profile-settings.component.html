@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <h1>Your nickname: {{ name }}</h1>
+  <h1>Change your nickname</h1>
+  <app-input placeholder="Nickname" [model]="nickName" (onChange)="onChangeNickName($event)"
+    (onSave)="onSaveNickName()"></app-input>
+  <app-button text="Change" [invalid]="isInvalidNickName" (buttonClick)="onSaveNickName()"></app-button>
+</div>

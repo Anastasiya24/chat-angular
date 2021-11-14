@@ -1,0 +1,25 @@
+<app-chat-container [name]="name">
+  <div class="chatContainer">
+    <div class="messages">
+      <app-message
+        *ngFor="let message of messages"
+        [sender]="name"
+        [time]="message.time"
+        [text]="message.text"
+      ></app-message>
+    </div>
+    <div class="textareaFooter">
+      <app-textarea
+        [model]="newMessageTest"
+        (onSave)="sendMessage"
+        placeholder="Your message"
+      ></app-textarea>
+      <img
+        *ngIf="isValidMessage"
+        src="../../../../assets/icons/send.svg"
+        class="sendIcon"
+        (click)="sendMessage"
+      />
+    </div>
+  </div>
+</app-chat-container>

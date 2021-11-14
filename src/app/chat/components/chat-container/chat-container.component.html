@@ -1,0 +1,32 @@
+<div>
+  <div class="container">
+    <div class="header">
+      <div class="logo" (click)="onLinkMainPage">
+        <img src="../../../assets/icons/chat.svg" />
+      </div>
+      <div class="profileIcon" (click)="setOpenAccountModal">
+        <!-- TODO pipe trouble -->
+        <!-- {{ name | modifyFirstLetterToUpperCase }} -->
+        {{ name?.substring(0, 1)?.toUpperCase() || '' }}
+      </div>
+    </div>
+    <div class="content">
+      <!-- TODO -->
+      <slot></slot>
+    </div>
+
+    <div class="footer">
+      <div class="logo" (click)="onLinkMainPage">
+        <img src="../../../assets/icons/chat.svg" />
+      </div>
+      <p>Chat app</p>
+    </div>
+  </div>
+  <app-modal
+    *ngIf="isOpenAccountModal"
+    (onCloseModal)="setOpenAccountModal()"
+    title="Profile Settings"
+  >
+    <app-profile-settings [name]="name" (onSave)="onSaveNickName"></app-profile-settings>
+  </app-modal>
+</div>
