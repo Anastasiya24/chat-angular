@@ -11,14 +11,16 @@
     <div class="textareaFooter">
       <app-textarea
         [model]="newMessageTest"
-        (onSave)="sendMessage"
+        (onSave)="sendMessage()"
+        (onChange)="onChangeMessage($event)"
         placeholder="Your message"
+        [ngStyle]="{'width':'100%'}"
       ></app-textarea>
       <img
         *ngIf="isValidMessage"
         src="../../../../assets/icons/send.svg"
         class="sendIcon"
-        (click)="sendMessage"
+        (click)="sendMessage()"
       />
     </div>
   </div>

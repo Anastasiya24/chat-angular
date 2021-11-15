@@ -27,11 +27,22 @@ export class ChatPageComponent implements OnInit {
     },
   ];
   newMessageTest: string = '';
+  // TODO FIX IT
   isValidMessage: boolean = true;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  sendMessage(): void {}
+  onChangeMessage(e: string): void {
+    this.newMessageTest = e;
+    // TODO FIX IT
+    // this.isValidMessage = !e || !e?.trim();
+  }
+
+  sendMessage(): void {
+    // TODO SAVE MESSAGES
+    console.log('Save new message: ', this.newMessageTest);
+    this.newMessageTest = "";
+  }
 }

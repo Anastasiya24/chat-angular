@@ -4,15 +4,14 @@
       <div class="logo" (click)="onLinkMainPage">
         <img src="../../../assets/icons/chat.svg" />
       </div>
-      <div class="profileIcon" (click)="setOpenAccountModal">
+      <div class="profileIcon" (click)="setOpenAccountModal()">
         <!-- TODO pipe trouble -->
         <!-- {{ name | modifyFirstLetterToUpperCase }} -->
         {{ name?.substring(0, 1)?.toUpperCase() || '' }}
       </div>
     </div>
     <div class="content">
-      <!-- TODO -->
-      <slot></slot>
+      <ng-content></ng-content>
     </div>
 
     <div class="footer">
@@ -27,6 +26,6 @@
     (onCloseModal)="setOpenAccountModal()"
     title="Profile Settings"
   >
-    <app-profile-settings [name]="name" (onSave)="onSaveNickName"></app-profile-settings>
+    <app-profile-settings [name]="name" (onSave)="onSaveNickName($event)"></app-profile-settings>
   </app-modal>
 </div>

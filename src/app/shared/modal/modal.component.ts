@@ -12,7 +12,9 @@ export class ModalComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    document.addEventListener('keydown', this.onKeydown);
+    document.addEventListener('keydown', (e) => {
+      this.onKeydown(e);
+    });
   }
 
   ngOnDestroy(): void {
