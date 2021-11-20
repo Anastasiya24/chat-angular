@@ -17,7 +17,7 @@ export class TextareaComponent implements OnInit {
   ngOnInit(): void {}
 
   onChangeEvent(event: any): void {
-    this.onChange.emit(event.target.value);
+    this.onChange.emit(event);
   }
 
   onKeyPress(): void {

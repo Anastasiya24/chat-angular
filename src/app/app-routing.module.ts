@@ -10,6 +10,11 @@ const routes: Routes = [
   { path: '**', component: NotFoundPageComponent },
 ];
 
+// TODO
+// 0 - PIPE
+// 1 - ROUTE RESTRICTION
+// 2 - THEME
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

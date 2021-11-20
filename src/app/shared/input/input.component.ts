@@ -17,7 +17,7 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {}
 
   onChangeEvent(event: any): void {
-    this.onChange.emit(event.target.value);
+    this.onChange.emit(event);
   }
 
   onKeyPress(): void {

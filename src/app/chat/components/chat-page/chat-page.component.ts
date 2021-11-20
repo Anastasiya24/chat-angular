@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-chat-page',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-page.component.css'],
 })
 export class ChatPageComponent implements OnInit {
-  // TODO GET NAME
-  name: string = 'Nastya';
+  constructor(private userService: UserService) {}
+
+  name: string = '';
 
   // TODO GET MESSAGES
   messages = [
@@ -27,22 +29,26 @@ export class ChatPageComponent implements OnInit {
     },
   ];
   newMessageTest: string = '';
-  // TODO FIX IT
-  isValidMessage: boolean = true;
+  isInvalidMessage: boolean = true;
 
-  constructor() {}
+  ngOnInit(): void {
+    // get user name
+    this.userService.get().subscribe((data) => (this.name = data));
 
-  ngOnInit(): void {}
+    // load new user name
+    this.userService.userName.subscribe((str) => {
+      this.name = str;
+    });
+  }
 
   onChangeMessage(e: string): void {
     this.newMessageTest = e;
-    // TODO FIX IT
-    // this.isValidMessage = !e || !e?.trim();
+    this.isInvalidMessage = !e || !e?.trim();
   }
 
   sendMessage(): void {
     // TODO SAVE MESSAGES
     console.log('Save new message: ', this.newMessageTest);
-    this.newMessageTest = "";
+    this.newMessageTest = '';
   }
 }

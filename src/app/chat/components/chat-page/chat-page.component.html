@@ -17,7 +17,7 @@
         [ngStyle]="{'width':'100%'}"
       ></app-textarea>
       <img
-        *ngIf="isValidMessage"
+        *ngIf="!isInvalidMessage"
         src="../../../../assets/icons/send.svg"
         class="sendIcon"
         (click)="sendMessage()"

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-greeting-page',
@@ -9,7 +11,7 @@ export class GreetingPageComponent implements OnInit {
   nickName: string = '';
   isInvalidNickName: boolean = true;
 
-  constructor() {}
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {}
 
@@ -19,7 +21,7 @@ export class GreetingPageComponent implements OnInit {
   }
 
   onSaveNickName(): void {
-    // TODO SAVE NICKNAME
-    console.log('Save click', this.nickName);
+    this.userService.post(this.nickName).subscribe();
+    this.router.navigateByUrl('/');
   }
 }

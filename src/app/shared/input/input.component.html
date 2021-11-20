@@ -2,7 +2,7 @@
   <input
     type="text"
     [(ngModel)]="model"
-    (change)="onChangeEvent($event)"
+    (ngModelChange)="onChangeEvent($event)"
     class="effect"
     [placeholder]="placeholder"
     (keyup.enter)="onKeyPress()"

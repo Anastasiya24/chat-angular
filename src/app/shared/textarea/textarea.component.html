@@ -1,6 +1,6 @@
 <textarea
   [(ngModel)]="model"
-  (change)="onChangeEvent($event)"
+  (ngModelChange)="onChangeEvent($event)"
   [placeholder]="placeholder"
   (keyup.enter)="onKeyPress()"
   class="textarea"

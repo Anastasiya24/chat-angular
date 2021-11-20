@@ -1,5 +1,7 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/services/user.service';
+
 @Component({
   selector: 'app-chat-container',
   templateUrl: './chat-container.component.html',
@@ -11,7 +13,7 @@ export class ChatContainerComponent implements OnInit {
 
   isOpenAccountModal: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {}
 
@@ -24,8 +26,8 @@ export class ChatContainerComponent implements OnInit {
   }
 
   onSaveNickName(e: any): void {
-    // TODO SAVE NICKNAME
-    console.log('Save new name click', e);
+    // save new name
+    this.userService.post(e).subscribe();
     this.setOpenAccountModal();
   }
 }

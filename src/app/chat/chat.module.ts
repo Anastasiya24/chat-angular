@@ -5,9 +5,10 @@ import { ChatContainerComponent } from './components/chat-container/chat-contain
 import { ChatPageComponent } from './components/chat-page/chat-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
+import { ServicesModule } from 'src/services/service.module';
 
 @NgModule({
   declarations: [ChatContainerComponent, ChatPageComponent, ProfileSettingsComponent],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, ServicesModule],
 })
 export class ChatModule {}

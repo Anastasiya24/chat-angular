@@ -8,6 +8,7 @@ import { ChatModule } from './chat/chat.module';
 
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { GreetingPageComponent } from './greeting-page/greeting-page.component';
+import { ServicesModule } from 'src/services/service.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { GreetingPageComponent } from './greeting-page/greeting-page.component';
     NotFoundPageComponent,
     GreetingPageComponent,
   ],
-  imports: [BrowserModule, SharedModule, ChatModule, AppRoutingModule],
+  imports: [BrowserModule, SharedModule, ChatModule, AppRoutingModule, ServicesModule],
   providers: [],
   bootstrap: [AppComponent],
 })
