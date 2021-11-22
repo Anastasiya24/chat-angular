@@ -21,7 +21,8 @@ export class GreetingPageComponent implements OnInit {
   }
 
   onSaveNickName(): void {
-    this.userService.post(this.nickName).subscribe();
-    this.router.navigateByUrl('/');
+    this.userService
+      .post(this.nickName)
+      .subscribe((data) => this.router.navigate(['/']));
   }
 }

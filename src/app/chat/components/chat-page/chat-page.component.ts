@@ -41,5 +41,6 @@ export class ChatPageComponent implements OnInit {
   sendMessage(): void {
     this.messageService.post(this.newMessageTest).subscribe();
     this.newMessageTest = '';
+    this.isInvalidMessage = true;
   }
 }

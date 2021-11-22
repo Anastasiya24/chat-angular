@@ -5,9 +5,7 @@
         <img src="../../../assets/icons/chat.svg" />
       </div>
       <div class="profileIcon" (click)="setOpenAccountModal()">
-        <!-- TODO pipe trouble -->
-        <!-- {{ name | modifyFirstLetterToUpperCase }} -->
-        {{ name?.substring(0, 1)?.toUpperCase() || '' }}
+        {{ name | modifyFirstLetterToUpperCase }}
       </div>
     </div>
     <div class="content">
