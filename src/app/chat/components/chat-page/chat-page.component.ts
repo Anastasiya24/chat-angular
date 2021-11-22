@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagesService } from 'src/services/messages.service';
 import { UserService } from 'src/services/user.service';
 
 @Component({
@@ -7,37 +8,28 @@ import { UserService } from 'src/services/user.service';
   styleUrls: ['./chat-page.component.css'],
 })
 export class ChatPageComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private messageService: MessagesService) {}
 
   name: string = '';
+  messages: any = [];
 
-  // TODO GET MESSAGES
-  messages = [
-    {
-      _id: '614362325d69f78bfe860c1a',
-      senderId: '6143622e5d69f78bfe860c17',
-      text: 'Hi',
-      time: '11:26',
-      __v: 0,
-    },
-    {
-      _id: '614362365d69f78bfe860c1c',
-      senderId: '6143622e5d69f78bfe860c17',
-      text: 'Testing.',
-      time: '11:26',
-      __v: 0,
-    },
-  ];
   newMessageTest: string = '';
   isInvalidMessage: boolean = true;
 
   ngOnInit(): void {
     // get user name
     this.userService.get().subscribe((data) => (this.name = data));
+    this.messageService.get().subscribe((data) => (this.messages = data));
 
     // load new user name
     this.userService.userName.subscribe((str) => {
       this.name = str;
+    });
+
+    this.messageService.messagesList.subscribe((item) => {
+      const newList = Array.from(this.messages);
+      newList.push(item);
+      this.messages = newList;
     });
   }
 
@@ -47,8 +39,7 @@ export class ChatPageComponent implements OnInit {
   }
 
   sendMessage(): void {
-    // TODO SAVE MESSAGES
-    console.log('Save new message: ', this.newMessageTest);
+    this.messageService.post(this.newMessageTest).subscribe();
     this.newMessageTest = '';
   }
 }
